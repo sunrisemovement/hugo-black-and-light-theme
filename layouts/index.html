@@ -1,10 +1,11 @@
 {{ partial "header.html" . }}
-
 <section id=content>
+  {{ .Content }}
+  
   <ul class=posts_listing>
-    {{ range .Pages }}
+    {{ range first 5 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
       <li>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
         <div id=date>
           <time>{{ .Date.Format (.Site.Params.dateform | default "January 2006") }}</time>
         </div>
@@ -14,4 +15,3 @@
 </section>
 
 {{ partial "footer.html" . }}
-
