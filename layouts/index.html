@@ -6,9 +6,7 @@
     {{ range first 5 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
       <li>
         <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <div id=date>
-          <time datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">{{ .Date.Format (.Site.Params.dateform | default "Mon January 2, 2006") }}</time>
-        </div>
+        <time datetime="{{ .Date.Format (.Site.Params.dateform | default "2006-01-02") }}">{{ .Date.Format (.Site.Params.dateform | default "Mon January 2, 2006") }}</time>
       </li>
     {{ end }}
   </ul>
